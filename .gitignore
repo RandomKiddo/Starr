@@ -1,0 +1,13 @@
+# MacOS
+*.DS_Store
+
+# CMake
+cmake-build-debug/
+CMakeFiles/
+CMakeLists.txt
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# CLion
+*.idea/
