@@ -48,7 +48,7 @@ int do_math(int a) {
     return x + 3        
 }
 
-echo(do_math(12)) // Outputs 63
+out(do_math(12)) // Outputs 63
 ```
 
 ___
