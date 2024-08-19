@@ -29,7 +29,7 @@
 %token <string> TIDENTIFIER TINTEGER TDOUBLE
 %token <token> TCEQ TCNE TCLT TCLE TCGT TCGE TEQUAL
 %token <token> TLPAREN TRPAREN TLBRACE TRBRACE TCOMMA TDOT
-%token <token> TPLUS TMINUS TMUL TDIV
+%token <token> TPLUS TMINUS TMUL TDIV TMOD TFLDIV
 %token <token> TRETURN TEXTERN
 
 /* Define the type of node our nonterminal symbols represent.
@@ -47,7 +47,7 @@
 
 /* Operator precedence for mathematical operators */
 %left TPLUS TMINUS
-%left TMUL TDIV
+%left TMUL TDIV TMOD TFLDIV
 
 %start program
 
@@ -101,6 +101,8 @@ expr : ident TEQUAL expr { $$ = new NAssignment(*$<ident>1, *$3); }
          | expr TDIV expr { $$ = new NBinaryOperator(*$1, $2, *$3); }
          | expr TPLUS expr { $$ = new NBinaryOperator(*$1, $2, *$3); }
          | expr TMINUS expr { $$ = new NBinaryOperator(*$1, $2, *$3); }
+         | expr TMOD expr { $$ = new NBinaryOperator(*$1, $2, *$3); }
+         | expr TFLDIV expr { $$ = new NBinaryOperator(*$1, $2, *$3); }
  	 | expr comparison expr { $$ = new NBinaryOperator(*$1, $2, *$3); }
      | TLPAREN expr TRPAREN { $$ = $2; }
 	 ;

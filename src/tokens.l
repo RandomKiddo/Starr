@@ -38,6 +38,8 @@
 "-"		          				return TOKEN(TMINUS);
 "*"		          				return TOKEN(TMUL);
 "/"				          		return TOKEN(TDIV);
+"%"                             return TOKEN(TMOD);
+"//"                            return TOKEN(TFLDIV);
 
 .                               printf("Unknown token!\n"); yyterminate();
 

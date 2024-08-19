@@ -107,7 +107,9 @@ Value* NBinaryOperator::codeGen(CodeGenContext& context)
 		case TPLUS: 	instr = Instruction::Add; goto math;
 		case TMINUS: 	instr = Instruction::Sub; goto math;
 		case TMUL: 		instr = Instruction::Mul; goto math;
-		case TDIV: 		instr = Instruction::SDiv; goto math;
+		case TDIV: 		instr = Instruction::FDiv; goto math;
+        case TMOD:      instr = Instruction::SRem; goto math;
+        case TFLDIV:    instr = Instruction::SDiv; goto math;
 				
 		/* TODO comparison */
 	}

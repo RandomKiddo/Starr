@@ -31,4 +31,4 @@ parser: $(OBJS)
 	clang++  -gfull -o $@ $(OBJS) $(LIBS) $(LDFLAGS)
 
 test: parser example.starr
-	cat example.txt | ./parser
+	cat example.starr | ./parser
